@@ -67,6 +67,8 @@ Defaults to `false`:
   ssl: true
 ```
 
+If you set this to `true`, `kamal-proxy` will stop forwarding headers to your Rails app, unless you explicitly set `forward_headers: true`, as documented in [Forward Headers](#forward-headers). Failing to do so will result in popular gems like [`cloudflare-rails`](https://github.com/modosc/cloudflare-rails) stop working.
+
 ## [Response timeout](#response-timeout)
 
 How long to wait for requests to complete before timing out, defaults to 30 seconds:
@@ -136,3 +138,5 @@ will forward them if it is set to `false`.
 ```yaml
   forward_headers: true
 ```
+
+Failing to set `forward_headers: true` while using `ssl: true` will result in popular gems like [`cloudflare-rails`](https://github.com/modosc/cloudflare-rails) stop working.
